@@ -165,13 +165,37 @@ export const processes = [
         process_type: 'formations',
         language: 'pl',
         content: {
-            process_title: 'Business formation',
+            process_title: 'Utwórz działalność',
             pages: [
-
+                {
+                    name: 'ContactInfoPage',
+                    title: 'Hej! Cześć!',
+                    components: [
+                        {
+                            name: 'HeadingComponent',
+                            props: {
+                                title: 'Adres e-mail',
+                                description:
+                                    'Nie martw się, nie udostępnimy Twoich danych nikomu.',
+                            },
+                        },
+                        {
+                            name: 'EmailAddressComponent',
+                            props: {},
+                        },
+                        {
+                            name: 'LoginHintComponent',
+                            props: {
+                                have_workspace: 'A może masz już swoją przestrzeń roboczą?',
+                                controller: 'formations',
+                                page: 'contact-address',
+                            }
+                        }
+                    ],
+                },
             ]
         },
         pricing
-
     },
 ]
 
