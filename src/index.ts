@@ -10,7 +10,6 @@ app.use(cors({ origin: '*' }))
 app.get('/order-process/:partner_identifier/:process_type/:language', (req, res) => {
     const { partner_identifier, process_type, language } = req.params;
 
-
     console.log('Requested ' + process + ' for partner with identifier: ' + partner_identifier);
 
     const partner_data = partners.find(p => p.text_identifier === partner_identifier);
