@@ -1,6 +1,7 @@
 interface IPartner {
     id: number,
     name: string,
+    text_identifier: string,
     logo: {
         url: string,
         alt: string
@@ -15,6 +16,7 @@ interface IPartner {
 export const partners: IPartner[] = [
     {
         id: 0,
+        text_identifier: 'bank-of-america',
         name: 'Bank of America',
         logo: {
             url: 'https://www2.bac-assets.com/homepage/spa-assets/images/assets-images-global-logos-bac-logo-v2-CSX3648cbbb.svg',
@@ -28,6 +30,7 @@ export const partners: IPartner[] = [
     },
     {
         id: 1,
+        text_identifier: 'bizee',
         name: 'Bizee',
         logo: {
             url: 'https://www.pngall.com/wp-content/uploads/2/B-Letter-Transparent.png',
@@ -41,6 +44,7 @@ export const partners: IPartner[] = [
     },
     {
         id: 2,
+        text_identifier: 'hbo',
         name: 'HBO',
         logo: {
             url: 'https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg',

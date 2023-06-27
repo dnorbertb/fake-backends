@@ -7,13 +7,13 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: '*' }))
 
-app.get('/order-process/:partner_id/:process_type/:language', (req, res) => {
-    const { partner_id, process_type, language } = req.params;
+app.get('/order-process/:partner_identifier/:process_type/:language', (req, res) => {
+    const { partner_identifier, process_type, language } = req.params;
 
 
-    console.log('Requested ' + process + ' for partner with id: ' + partner_id);
+    console.log('Requested ' + process + ' for partner with identifier: ' + partner_identifier);
 
-    const partner_data = partners.find(p => p.id === Number(partner_id));
+    const partner_data = partners.find(p => p.text_identifier === partner_identifier);
 
     if (!partner_data) {
         res.status(204).json({ success: false, message: 'Requested partner not found' });
