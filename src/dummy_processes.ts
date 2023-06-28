@@ -25,7 +25,7 @@ const pricing = {
             "external_service_id": "Platinum",
             "price": 25000,
             "fees": [],
-            "included": [],
+            "included": ['virtual-address'],
         }
     ],
     products: [
@@ -42,11 +42,11 @@ const pricing = {
         {
             "id": 2,
             "type": "product",
-            "name": "EIN",
-            "external_service_id": "ein",
+            "name": "Expedited filling",
+            "external_service_id": "expedited-filling",
             "is_subscription": false,
             "subscription_period": "",
-            "price": 4900,
+            "price": 5000,
             "fees": []
         }
 
@@ -169,12 +169,12 @@ export const processes = [
             pages: [
                 {
                     name: 'ContactInfoPage',
-                    title: 'Hej! Cześć!',
+                    title: 'Hej! Siema! Cześć!',
                     components: [
                         {
                             name: 'HeadingComponent',
                             props: {
-                                title: 'Adres e-mail',
+                                title: 'Can You give me your email address?',
                                 description:
                                     'Nie martw się, nie udostępnimy Twoich danych nikomu.',
                             },

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon",
     "start": "node ./build/index.js",
     "build": "rimraf ./build && tsc"
   },
