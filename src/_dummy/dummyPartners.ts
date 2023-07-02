@@ -7,7 +7,7 @@ export const dummyPartners: IPartnerData[] = [
         textIdentifier: 'tesla',
         name: 'Tesla USA',
         logo: {
-            url: 'http://localhost:3000/public/tesla-logo.png',
+            url: 'http://srv18.mikr.us:40049/public/tesla-logo.png',
             alt: 'Tesla USA'
         },
         accent_color: {
@@ -22,7 +22,7 @@ export const dummyPartners: IPartnerData[] = [
         textIdentifier: 'tesla-1',
         name: 'Tesla USA',
         logo: {
-            url: 'http://localhost:3000/public/tesla-logo.png',
+            url: 'http://srv18.mikr.us:40049/public/tesla-logo.png',
             alt: 'Tesla USA'
         },
         accent_color: {
@@ -37,7 +37,7 @@ export const dummyPartners: IPartnerData[] = [
         textIdentifier: 'tesla-2',
         name: 'Tesla USA',
         logo: {
-            url: 'http://localhost:3000/public/tesla-logo.png',
+            url: 'http://srv18.mikr.us:40049/public/tesla-logo.png',
             alt: 'Tesla USA'
         },
         accent_color: {
