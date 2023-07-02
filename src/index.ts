@@ -18,7 +18,7 @@ app.use('/order', orderRoutes);
 import tagChatRoutes from './tagChat/index';
 app.use('/chat', tagChatRoutes);
 
-app.listen(3000, () => {
-    console.log('App is up and running on port 3000!')
+app.listen(40049, () => {
+    console.log('App is up and running on port 40049!')
 });
 
