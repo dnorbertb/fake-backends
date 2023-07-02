@@ -1,22 +1,22 @@
 import express from "express";
 const router = express.Router();
-import * as orderController from "../controllers/order.controller";
+import * as cartController from "../controllers/cart.controller";
 
 
 router.post('/create',
-    orderController.addCart
+    cartController.addCart
 );
 
 router.get('/get/:id',
-    orderController.getOneById
+    cartController.getOneById
 );
 
 router.patch('/update/:id',
-    orderController.updateCart
+    cartController.updateCart
 );
 
 router.delete('/delete/:id',
-    orderController.deleteCart
+    cartController.deleteCart
 );
 
 export default router;

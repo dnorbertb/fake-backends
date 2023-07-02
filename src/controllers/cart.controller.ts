@@ -1,11 +1,13 @@
 import { Request, Response } from 'express';
 import IQueryError from "../types/IQueryError";
-import * as service from '../services/partner.service';
+import md5 from 'md5';
+import * as service from '../services/cart.service';
 
-
-const addPartner = async (req: Request, res: Response) => {
+const addCart = async (req: Request, res: Response) => {
     try {
-        const response = await service.saveNewPartner(req.body);
+        const id = md5(JSON.stringify(req.body) + new Date().getTime());
+        const createDate = new Date().getTime();
+        const response = await service.addNewCart({ id, createDate, ...req.body });
         res.status(201).json({ data: response });
     } catch (error) {
         const err = error as IQueryError
@@ -20,9 +22,9 @@ const addPartner = async (req: Request, res: Response) => {
     }
 }
 
-const getOneByIdentifier = async (req: Request, res: Response) => {
+const getOneById = async (req: Request, res: Response) => {
     try {
-        const response = await service.getOneByName(req.params.identifier);
+        const response = await service.getCartById(req.params.id);
 
         if (response) {
             res.status(200).json({ data: response });
@@ -35,9 +37,10 @@ const getOneByIdentifier = async (req: Request, res: Response) => {
     }
 }
 
-const updatePartner = async (req: Request, res: Response) => {
+const updateCart = async (req: Request, res: Response) => {
     try {
-        const response = await service.updateExistingPartner(req.body);
+        const updateDate = new Date().getTime();
+        const response = await service.updateExistingCart({ updateDate, ...req.body });
         if (response) {
             res.status(200).json({ data: response });
         } else {
@@ -49,9 +52,9 @@ const updatePartner = async (req: Request, res: Response) => {
     }
 }
 
-const deletePartner = async (req: Request, res: Response) => {
+const deleteCart = async (req: Request, res: Response) => {
     try {
-        const response = await service.deleteSinglePartner();
+        const response = await service.deleteSingleCart();
         if (response) {
             res.status(200).json({ success: true });
         } else {
@@ -64,8 +67,8 @@ const deletePartner = async (req: Request, res: Response) => {
 }
 
 export {
-    addPartner,
-    updatePartner,
-    deletePartner,
-    getOneByIdentifier,
+    addCart,
+    updateCart,
+    deleteCart,
+    getOneById,
 }

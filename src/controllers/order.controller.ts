@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
 import IQueryError from "../types/IQueryError";
-import md5 from 'md5';
 import * as service from '../services/order.service';
+import { getCartById } from '../services/cart.service';
+import { fakeCart } from '../_dummy/fakeCart';
 
-const addOrder = async (req: Request, res: Response) => {
+const addCart = async (req: Request, res: Response) => {
     try {
-        const id = md5(JSON.stringify(req.body) + new Date().getTime());
-        const response = await service.addNewOrder({ id, ...req.body });
+        const { cartId, paymentSuccessfull } = req.body;
+        const cart = await getCartById(cartId);
+        const response = await service.addNewOrder({ cart: cart ? cart : { ...fakeCart, id: cartId }, paymentSuccessfull });
         res.status(201).json({ data: response });
     } catch (error) {
         const err = error as IQueryError
@@ -36,7 +38,7 @@ const getOneById = async (req: Request, res: Response) => {
     }
 }
 
-const updateOrder = async (req: Request, res: Response) => {
+const updateCart = async (req: Request, res: Response) => {
     try {
         const updateDate = new Date().getTime();
         const response = await service.updateExistingOrder({ updateDate, ...req.body });
@@ -51,7 +53,7 @@ const updateOrder = async (req: Request, res: Response) => {
     }
 }
 
-const deleteOrder = async (req: Request, res: Response) => {
+const deleteCart = async (req: Request, res: Response) => {
     try {
         const response = await service.deleteSingleOrder();
         if (response) {
@@ -66,8 +68,8 @@ const deleteOrder = async (req: Request, res: Response) => {
 }
 
 export {
-    addOrder,
-    updateOrder,
-    deleteOrder,
+    addCart,
+    updateCart,
+    deleteCart,
     getOneById,
 }
